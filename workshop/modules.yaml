@@ -12,6 +12,7 @@ modules:
         exit_sign: Sources and Sinks
     exercises/03-sources-and-sinks:    
         name: Sources and Sinks
+        exit_sign: Summary
     summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
