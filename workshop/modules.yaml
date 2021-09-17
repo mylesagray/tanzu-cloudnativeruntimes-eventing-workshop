@@ -1,7 +1,8 @@
 modules:
     overview:
-        name: Workshop Overview
-        exit_sign: What is Knative?
+        name: Tanzu Cloud Native Runtimes Overview
+    view-environment:
+        name: Environment Overview
     exercises/01-what-is-knative:
         name: What is Knative
         exit_sign: Knative’s capabilities
@@ -16,7 +17,6 @@ modules:
         exit_sign: Sources and Sinks
     exercises/05-sources-and-sinks:    
         name: Sources and Sinks
-        exit_sign: Filtering and Flowing
     summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

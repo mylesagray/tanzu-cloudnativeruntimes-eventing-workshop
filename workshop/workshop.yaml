@@ -1,8 +1,9 @@
-name: Markdown Sample
+name: Cloud Native Runtimes
 
 modules:
     activate:
     - overview
+    - view-environment
     - exercises/01-what-is-knative
     - exercises/02-knative-capabilities
     - exercises/03-intro-knative-eventing

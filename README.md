@@ -1,5 +1,7 @@
 # Cloud Native Runtimes Eventing Workshop for Tanzu Developer Portal
 
+[![Docker Image Publish](https://github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop/actions/workflows/publish.yml/badge.svg)](https://github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop/actions/workflows/publish.yml)
+
 For more detailed information on how to create and deploy workshops, consult
 the documentation for Educates at:
 
