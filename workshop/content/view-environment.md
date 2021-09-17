@@ -6,7 +6,7 @@ This environment has multiple tabs within the window on the right hand side.
 
 Any Applciations that we will be deploying will be opened in a new tab.
 
-## View Tanzu Cloud Native Runtimes
+## Tanzu Cloud Native Runtimes
 
 Tanzu Cloud Native Runtimes has already been deployed on the Kubernetes Cluster.
 
@@ -27,7 +27,7 @@ You can also look at the namespaces via `kubectl`
 kubectl get namespaces
 ```
 
-## Tip
+### Tip
 
 Did you type the above command in yourself?
 

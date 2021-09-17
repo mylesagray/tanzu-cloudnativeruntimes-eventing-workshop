@@ -4,9 +4,7 @@ modules:
     activate:
     - overview
     - view-environment
-    - exercises/01-what-is-knative
-    - exercises/02-basic-architecture-of-knative-eventing
-    - exercises/03-intro-cloud-events
-    - exercises/04-hands-on-knative-eventing
-    - exercises/05-sources-and-sinks
+    - exercises/01-intro-cloud-events
+    - exercises/02-hands-on-knative-eventing
+    - exercises/03-sources-and-sinks
     - summary
