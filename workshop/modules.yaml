@@ -17,9 +17,6 @@ modules:
     exercises/05-sources-and-sinks:    
         name: Sources and Sinks
         exit_sign: Filtering and Flowing
-    exercises/06-filtering-and-flowing:
-        name: Filtering and Flowing
-        exit_sign: Workshop Summary
     summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

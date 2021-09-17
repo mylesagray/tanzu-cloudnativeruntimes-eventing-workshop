@@ -1,7 +1,8 @@
-The goal of this workshop was to introduce you to the fundamental components and capabilities of **Knative Eventing** in more detail.
+The goal of this workshop was to introduce you to the fundamental components and capabilities of **Knative Eventing**.
 
 Next Steps for you:
-- Deploy ***Cloud Native Runtimes for VMware Tanzu*** (and the OSS Knative) on one of your clusters via the official documentation
-- Deploy some applications with event-driven architecture were the events conform to the *CloudEvents* specifications and understand the ease of use and the developer experience of *Knative Eventing*
-- Provide feedback on what you will like to see
-- Get involved in the community that is building this amazing next generation cloud native runtime on top of Kubernetes
+
+* Deploy **VMware Tanzu Cloud Native Runtimes** (includes Knative) on one of your clusters via the [official VMware documentation](https://docs.vmware.com/en/Cloud-Native-Runtimes-for-VMware-Tanzu/1.0/tanzu-cloud-native-runtimes-1-0/GUID-cnr-overview.html).
+* Deploy some applications with event-driven architecture where the events conform to the *CloudEvents* specification
+* Perhaps try a more complex example, such as an ML application for numberplate recognition (also uses CNR's TriggerMesh integration):
+  * <https://github.com/mylesagray/anpr-knative>

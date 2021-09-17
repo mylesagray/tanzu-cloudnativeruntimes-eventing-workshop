@@ -1,0 +1,60 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate build number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3 
+        with:
+          token: ${{secrets.github_token}} 
+      - 
+        name: Checkout repo
+        uses: actions/checkout@master
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GH_USERNAME }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Login to Harbor
+        uses: docker/login-action@v1
+        with:
+          registry: harbor.blah.cloud
+          username: ${{ secrets.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          platforms: linux/amd64
+          push: true
+          tags: |
+            mylesagray/tanzu-cnr-eventing-workshop:${{ steps.buildnumber.outputs.build_number }}
+            mylesagray/tanzu-cnr-eventing-workshop:latest
+            ghcr.io/mylesagray/tanzu-cnr-eventing-workshop:${{ steps.buildnumber.outputs.build_number }}
+            ghcr.io/mylesagray/tanzu-cnr-eventing-workshop:latest
+            harbor.blah.cloud/mylesagray/tanzu-cnr-eventing-workshop:${{ steps.buildnumber.outputs.build_number }}
+            harbor.blah.cloud/mylesagray/tanzu-cnr-eventing-workshop:latest
+          file: ./Dockerfile

@@ -8,5 +8,4 @@ modules:
     - exercises/03-intro-knative-eventing
     - exercises/04-basic-architecture-of-knative-eventing
     - exercises/05-sources-and-sinks
-    - exercises/06-filtering-and-flowing
     - summary
