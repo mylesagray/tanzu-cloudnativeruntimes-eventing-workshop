@@ -5,15 +5,15 @@ modules:
         name: Environment Overview
     exercises/01-what-is-knative:
         name: What is Knative
-        exit_sign: Knative’s capabilities
-    exercises/02-knative-capabilities:
-        name: Knative’s capabilities
-        exit_sign: Introducing Knative Eventing
-    exercises/03-intro-knative-eventing:
-        name: Introducing Knative Eventing
-        exit_sign: The basic architecture of Knative Eventing
-    exercises/04-basic-architecture-of-knative-eventing:
+        exit_sign: Knative Eventing Architecture
+    exercises/02-basic-architecture-of-knative-eventing:
         name: The basic architecture of Knative Eventing
+        exit_sign: Intro to CloudEvents
+    exercises/03-intro-cloud-events:
+        name: Intro to CloudEvents
+        exit_sign: Knative Eventing Hands-on
+    exercises/04-hands-on-knative-eventing:
+        name: Knative Eventing Hands-on
         exit_sign: Sources and Sinks
     exercises/05-sources-and-sinks:    
         name: Sources and Sinks

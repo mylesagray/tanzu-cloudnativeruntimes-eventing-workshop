@@ -1,11 +1,12 @@
-The purpose of Knative(pronounced "KAY-nay-tiv") is to provide a simple, consistent layer over Kubernetes that solves common problems of deploying software, connecting disparate systems together, upgrading software, observing software, routing traffic, and scaling automatically. This layer creates a firmer boundary between the developer and the platform, allowing the developer to concentrate on the software they are directly responsible for.
+***Knative*** brings "serverless" experience to kubernetes. It also tries to codify common patterns and best practices for running applications while hiding away the complexity of doing that on kubernetes.
 
-The major subprojects of Knative are *Serving* and *Eventing*.
-- **Serving** is responsible for deploying, upgrading, routing, and scaling. 
-- **Eventing** is responsible for connecting disparate systems. Dividing responsibilities this way allows each to be developed more independently and rapidly by the Knative community.
+It does so by providing two sets of components:
 
-The software artifacts of Knative are a collection of software processes, packaged into containers, that run on a Kubernetes cluster. In addition, Knative installs additional customizations into Kubernetes itself to achieve its ends. This is true of both *Serving* and *Eventing*, each of which installs its own components and customizations. While this might interest a platform engineer or platform operator, it shouldn’t matter to a developer. Developers should only care that it is installed, not where or how.
+- **Serving** - Request-driven compute that can scale to zero
+- **Eventing** - Management and delivery of events
 
-The API or surface area of Knative is primarily YAML documents. These are CRDs (Custom Resource Definitions), which are, essentially, plugins or extensions for Kubernetes that look and feel like vanilla Kubernetes.
+At a high level `knative-serving` is an abstraction over the bare k8s **deployment->pod->service->ingress** model. Knative allows you to ask for a `knative-service` with an image at the core. You will be able to provide many configurations that will/can override all the amazing opinionated defaults provided by the abstraction.
 
-You can also work in a more imperative style using the Knative kn command-line client, which is useful for tinkering and rapid iteration. You work with both of these approaches throughout the workshop. But first, let’s take a quick motivational tour of Knative’s capabilities.
+By contrast, `knative-eventing` focuses on messaging between the components in `knative-serving`. It enables developers to use an event-driven architecture with serverless applications. An event-driven architecture is based on the concept of decoupled relationships between `event producers` - that create events, and `event consumers` (sinks) - that receive events.
+
+In this Workshop,  we will focus primarily on the `knative-eventing` aspects.

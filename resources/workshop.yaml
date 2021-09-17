@@ -12,7 +12,7 @@ spec:
   duration: 15m
   url: https://github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop
   content:
-    image: ghcr.io/mylesagray/tanzu-cnr-eventing-workshop:latest
+    image: ghcr.io/mylesagray/tanzu-cnr-eventing-workshop:5
     files: github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop
   session:
     namespaces:
