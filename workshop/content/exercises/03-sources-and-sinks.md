@@ -49,7 +49,7 @@ clear: true
 Instead of the CloudEvents player application, we will use Sockeye which reveals a slightly lower-level view.
 
 ```terminal:execute
-command: kn service create sockeye --image docker.io/n3wscott/sockeye:v0.7.0
+command: kn service create sockeye --image n3wscott/sockeye:v0.7.0
 clear: true
 ```
 
@@ -80,7 +80,7 @@ clear: true
 The kubectl/YAML counter-part for our source looks like this:
 
 ```editor:append-lines-to-file
-file: ~/source.yaml
+file: ~/source-uri.yaml
 text: |
       apiVersion: sources.knative.dev/v1beta2
       kind: PingSource
@@ -110,22 +110,22 @@ clear: true
 
 The kubectl/YAML counter-part for our source looks like this:
 
-```sh
-kubectl apply -f - << EOF
-apiVersion: sources.knative.dev/v1beta2
-kind: PingSource
-metadata:
-  name: ping-player
-spec:
-  data: '{"foo":"and likewise bar"}'
-  schedule: '* * * * *'
-  sink:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: sockeye
-      namespace: {{ session_namespace }}
-EOF
+```editor:append-lines-to-file
+file: ~/source-ref.yaml
+text: |
+      apiVersion: sources.knative.dev/v1beta2
+      kind: PingSource
+      metadata:
+        name: ping-player
+      spec:
+        data: '{"foo":"and likewise bar"}'
+        schedule: '* * * * *'
+        sink:
+          ref:
+            apiVersion: serving.knative.dev/v1
+            kind: Service
+            name: sockeye
+            namespace: {{ session_namespace }}
 ```
 
 There’s no `--sink-ref` or `--ref` argument to signal to Knative that you’re using a `Ref` instead of a `URI`. Your intention is derived from the syntax of what you pass in.
