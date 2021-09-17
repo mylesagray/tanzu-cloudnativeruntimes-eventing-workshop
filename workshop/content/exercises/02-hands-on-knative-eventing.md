@@ -32,9 +32,18 @@ clear: true
 
 This command creates the default in-memory broker (IMC) that you can use to send events to. In production, you would want to use a broker that is backed by a persistent store.
 
+We can retrieve the broker we just created:
+
+```terminal:execute
+command: kn broker describe default
+clear: true
+```
+
+The URL from the output is the address of the broker itself, we can use it to send or pull events from it.
+
 ### Creating a Subscriber and a Trigger
 
-Let's continue with a `Subscriber`. The simplest thing to put here is a basic web app that can receive `CloudEvents` and perhaps help you to inspect those.
+Let's continue with a `Subscriber`. The simplest thing to put here is a basic web app that can receive `CloudEvents` and perhaps help you to inspect those. Below we are creating a Knative Eventing `Service` that will act as a subscriber for our `Broker`.
 
 ```terminal:execute
 command: kn service create cloudevents-player --image ruromero/cloudevents-player:latest --env BROKER_URL=http://broker-ingress.knative-eventing.svc.cluster.local/{{ session_namespace }}/default
@@ -43,7 +52,7 @@ clear: true
 
 After the deployment of the `Service` there should be a URL to access the application in the output from the command.
 
-If you open the URL, you should see a form with fields for all the required attributes we talked about in the previous section to send an event to the `Broker`.
+If you open the URL, you should see a form with fields for all the required attributes to send an event to the `Broker`.
 
 ![CloudEvents Player](img/cloudevents-player.png)
 
