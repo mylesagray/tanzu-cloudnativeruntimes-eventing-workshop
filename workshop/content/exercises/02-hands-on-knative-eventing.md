@@ -37,7 +37,7 @@ This command creates the default in-memory broker (IMC) that you can use to send
 Let's continue with a `Subscriber`. The simplest thing to put here is a basic web app that can receive `CloudEvents` and perhaps help you to inspect those.
 
 ```terminal:execute
-command: kn service create cloudevents-player --image ruromero/cloudevents-player:latest --env BROKER_URL=http://default
+command: kn service create cloudevents-player --image ruromero/cloudevents-player:latest --env BROKER_URL=http://broker-ingress.knative-eventing.svc.cluster.local/{{ session_namespace }}/default
 clear: true
 ```
 
@@ -56,7 +56,11 @@ clear: true
 
 ### Sending an Event
 
-If you now head back to your browser and try sending an event, you’ll see that the event is both sent and received.
+If you now head back to your browser and try sending an event, see an example below:
+
+![CloudEvents Player Create Event](img/cloudevents-player-create-event.png)
+
+You’ll see that the event is both sent and received.
 
 The simple fact here is that we’ve cheated by making the same application both the `Source` and `Sink` for events.
 
