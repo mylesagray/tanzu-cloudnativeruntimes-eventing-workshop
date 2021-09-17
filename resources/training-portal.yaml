@@ -1,0 +1,15 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: TrainingPortal
+metadata:
+  name: cnr-eventing-getting-started
+spec:
+  portal:
+    registration:
+      type: anonymous
+    ingress:
+      class: contour-external
+  workshops:
+  - name: cnr-eventing-getting-started
+    capacity: 2
+    expires: 60m
+    orphaned: 5m

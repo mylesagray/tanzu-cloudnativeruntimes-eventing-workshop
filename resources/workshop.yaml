@@ -1,0 +1,35 @@
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: cnr-eventing-getting-started
+spec:
+  title: Getting Started with Knative Eventing on VMware Tanzu Cloud Native Runtimes
+  description: A workshop that presents an introduction to Knative Eventing for users of VMware Tanzu Cloud Native Runtimes
+  vendor: eduk8s.io
+  authors:
+  - Myles Gray
+  difficulty: beginner
+  duration: 15m
+  url: https://github.com/mylesagray/tanzu-cloudnativeruntimes-eventing-workshop
+  content:
+    #image: quay.io/eduk8s/lab-markdown-sample:master
+#    image: honnuanand/cnr-dev-fundamentals:0.3
+#    image: quay.io/eduk8s/base-environment:master
+#    image: olrich/cnr-workshop:0.1
+    image: ghcr.io/clue2solve/knative-workshop-eduk8s:latest
+    files: github.com/tanzu-developer-experience/cnr-eventing-advanced
+  session:
+    namespaces:
+      budget: xxx-large
+      limits:
+        min:
+          cpu: 25m
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+        vendor: octant
+      editor:
+        enabled: true
